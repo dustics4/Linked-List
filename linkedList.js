@@ -6,6 +6,7 @@ export default class LinkedList{
     }
 
     toString(){
+        console.log("run!");
         let current = this.headNode;
         let str = "";
 
@@ -18,6 +19,8 @@ export default class LinkedList{
 
 //append the node to the end of the list
     append(value) {
+        console.log("run!");
+
         //create new node
         let newNode = new Node(value);
 
