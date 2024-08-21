@@ -13,7 +13,7 @@ export default class LinkedList{
             str += `( ${current.value} ) ->  `;
             current = current.nextNode;
         }
-        return str;
+        return (str += "null");
     }
 
 //append the node to the end of the list
@@ -46,14 +46,32 @@ export default class LinkedList{
     }
 
     size(){
+        let size = 0;
+        let current = this.headNode;
 
+        while(current !== null){
+            size++
+            current = current.nextNode;
+        }
+        return size;
     }
 
     head(){
+        let current = this.headNode;
 
+        while(current == null){
+            current = current.nextNode
+        }
+        return current.value;
     }
 
     tail(){
+        let current = this.headNode;
+
+        while(current !== null){
+            current = current.nextNode;
+        }
+        return current;
 
     }
 

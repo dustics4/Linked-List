@@ -9,4 +9,7 @@ list.append("hamster");
 list.append("snake");
 list.append("turtle");
 
-console.log(list.toString());
+console.log(list.toString()); // ( dog ) ->  ( cat ) ->  ( parrot ) ->  ( hamster ) ->  ( snake ) ->  ( turtle ) ->  null
+console.log(list.size()); // 6
+console.log(list.head()) //dog
+console.log(list.tail()); // turtle
