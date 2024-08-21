@@ -13,3 +13,9 @@ console.log(list.toString()); // ( dog ) ->  ( cat ) ->  ( parrot ) ->  ( hamste
 console.log(list.size()); // 6
 console.log(list.head()) //dog
 console.log(list.tail()); // turtle
+
+console.log(list.at(3)); //hamster
+console.log(list.contains("dog")); //true
+console.log(list.pop()); //pops value turtle
+console.log(list.toString());
+console.log(list.find("parrot")); //1
