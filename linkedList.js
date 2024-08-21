@@ -68,14 +68,26 @@ export default class LinkedList{
     tail(){
         let current = this.headNode;
 
-        while(current !== null){
+        while(current.nextNode !== null){
             current = current.nextNode;
         }
-        return current;
-
+        
+        return current.value;
     }
 
     at(index){
+        let current = this.headNode;
+        let count = 0;
+
+        while(current !== null){
+            if(count == index){
+                return current.value;
+            }
+            count++;
+            current = current.nextNode;
+           
+        }
+        return null;
 
     }
 
@@ -84,12 +96,26 @@ export default class LinkedList{
     }
 
     contains(value){
-
+        let current = this.headNode;
+        if(value === current.value){
+            return true
+        }else{
+            return false
+        }
     }
 
     find(value){
+        let current = this.headNode;
+        let count = 0;
 
+        while(current !== null){
+            if(count == value){
+                return current;
+            }
+            count++;
+            current = current.nextNode; 
+        }
+        return null;
     }
-
-    
+  
 }
