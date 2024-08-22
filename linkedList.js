@@ -6,14 +6,16 @@ export default class LinkedList{
     }
 
     toString(){
+        //set current node to headnode
         let current = this.headNode;
-        let str = "";
+        let str = ""; //empty string
 
+        //while loop :- while at the head node
         while(current){
-            str += `( ${current.value} ) ->  `;
-            current = current.nextNode;
+            str += `( ${current.value} ) ->  `; // add node.value onto the string
+            current = current.nextNode; //switch on to the next node
         }
-        return (str += "null");
+        return (str += "null"); //return or print the str + null, null being the end node
     }
 
 //append the node to the end of the list
@@ -41,7 +43,9 @@ export default class LinkedList{
 
 //adds a new node containing value to the start of the list
     prepend(value){
+        //adds value to Node class
         let newNode = new Node(value, this.headNode);
+        //adds node to the start of the list.
         this.headNode = newNode;
     }
 
@@ -49,33 +53,33 @@ export default class LinkedList{
     size(){
         let size = 0;
         let current = this.headNode;
-
+    //while loop. Traverse until the end of the list
         while(current !== null){
             size++
-            current = current.nextNode;
+            current = current.nextNode; //increaes size and move onto the next node
         }
-        return size;
+        return size; 
     }
 
 //returns the first node in the list
     head(){
         let current = this.headNode;
 
-        while(current == null){
-            current = current.nextNode
+        while(current == null){ //traverse until the start of the list
+            current = current.nextNode //head node is equal to the next node, which is the first one
         }
-        return current.value;
+        return current.value; //return value of first node
     }
 
 //returns the last node in the list
     tail(){
         let current = this.headNode;
 
-        while(current.nextNode !== null){
-            current = current.nextNode;
+        while(current.nextNode !== null){ //traverse until end node
+            current = current.nextNode; // head node = next node, which is the last node
         }
         
-        return current.value;
+        return current.value; //print value of last node
     }
 
 //  returns the node at the given index
@@ -83,20 +87,21 @@ export default class LinkedList{
         let current = this.headNode;
         let count = 0;
 
-        while(current !== null){
-            if(count == index){
+        while(current !== null){ //traverse to end of list
+            if(count == index){ //if count is the same as index, return the value
                 return current.value;
             }
-            count++;
-            current = current.nextNode;
+            count++; //increae count
+            current = current.nextNode; //move headnode to the next node
            
         }
-        return null;
+        return null; // else return null
 
     }
 
 //remove the last node of the list
     pop(){
+//if the first node is empty, return null
         if(this.headNode === null){
             return null;
         }
@@ -123,7 +128,7 @@ export default class LinkedList{
     //check if the list contains the value provided
     contains(value){
         let current = this.headNode;
-        if(value === current.value){
+        if(value === current.value){ // boolean to compare value
             return true
         }else{
             return false
@@ -148,12 +153,18 @@ export default class LinkedList{
 
 //that inserts a new node with the provided value at the given index.
     insertAt(value, index){
-
+// Step 1: If the index is 0, use the prepend method to insert the node at the beginning.
+//Step 2: Traverse the list until you reach the node just before the desired index.
+//Step 3: Insert the new node by adjusting the nextNode pointers.
+//Step 4: Handle cases where the index is out of bounds (greater than the list's size).
     }
 
 //that removes the node at the given index.
     removeAt(index){
-
+//Step 1: If the index is 0, remove the head node by updating this.headNode.
+//Step 2: Traverse the list to find the node just before the specified index.
+//Step 3: Adjust the nextNode pointer to skip the node at the index.
+//Step 4: Handle cases where the index is out of bounds.
     }
   
 }
