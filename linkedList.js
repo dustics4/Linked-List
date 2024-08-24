@@ -154,7 +154,7 @@ export default class LinkedList{
 //that inserts a new node with the provided value at the given index.
     insertAt(value, index){
 
-        //if list is empty add the node to the start
+// Step 1: If the index is 0, use the prepend method to insert the node at the beginning.
         if(this.headNode === null & index === 0){
             let newNode = this.prepend(value);
             return newNode;
@@ -163,31 +163,43 @@ export default class LinkedList{
         let newNode = new Node(value);
         let current = this.headNode;
         let startIndex = 0;
-
+        
+//Step 2: Traverse the list until you reach the node just before the desired index.
         while(current !== null & startIndex < index - 1){
             current = current.nextNode;
             startIndex++;
         }
-
+//Step 4: Handle cases where the index is out of bounds (greater than the list's size).
         if(current === null){
             return null
         }
-
+//Step 3: Insert the new node by adjusting the nextNode pointers.
         newNode.nextNode = current.nextNode;
         current.nextNode = newNode;
         
-// Step 1: If the index is 0, use the prepend method to insert the node at the beginning.
-//Step 2: Traverse the list until you reach the node just before the desired index.
-//Step 3: Insert the new node by adjusting the nextNode pointers.
-//Step 4: Handle cases where the index is out of bounds (greater than the list's size).
     }
 
 //that removes the node at the given index.
     removeAt(index){
+        let current = this.headNode;
+        let startIndex = 0;
 //Step 1: If the index is 0, remove the head node by updating this.headNode.
-//Step 2: Traverse the list to find the node just before the specified index.
-//Step 3: Adjust the nextNode pointer to skip the node at the index.
+        if(index === 0){
+            if(this.headNode !== null){
+                this.headNode = this.headNode.nextNode;
+            }
+            return
+        }
 //Step 4: Handle cases where the index is out of bounds.
+        if(current === null & current.nextNode === null){
+            return null;
+        }
+//Step 2: Traverse the list to find the node just before the specified index.
+        while(current !== null & startIndex < index - 1){
+            current = current.nextNode;
+            startIndex++;
+        }
+//Step 3: Adjust the nextNode pointer to skip the node at the index.
+        current.nextNode = current.nextNode.nextNode;
     }
-  
 }
