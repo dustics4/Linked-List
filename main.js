@@ -19,3 +19,6 @@ console.log(list.contains("dog")); //true
 console.log(list.pop()); //pops value turtle
 console.log(list.toString());
 console.log(list.find("parrot")); //1
+
+console.log(list.insertAt("lizard", 1));
+console.log(list.toString());

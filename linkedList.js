@@ -153,6 +153,29 @@ export default class LinkedList{
 
 //that inserts a new node with the provided value at the given index.
     insertAt(value, index){
+
+        //if list is empty add the node to the start
+        if(this.headNode === null & index === 0){
+            let newNode = this.prepend(value);
+            return newNode;
+        }
+
+        let newNode = new Node(value);
+        let current = this.headNode;
+        let startIndex = 0;
+
+        while(current !== null & startIndex < index - 1){
+            current = current.nextNode;
+            startIndex++;
+        }
+
+        if(current === null){
+            return null
+        }
+
+        newNode.nextNode = current.nextNode;
+        current.nextNode = newNode;
+        
 // Step 1: If the index is 0, use the prepend method to insert the node at the beginning.
 //Step 2: Traverse the list until you reach the node just before the desired index.
 //Step 3: Insert the new node by adjusting the nextNode pointers.
